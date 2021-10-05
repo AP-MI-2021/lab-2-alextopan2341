@@ -68,16 +68,36 @@ def test_get_perfect_squares():
     assert get_perfect_squares(1, 100) == [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     assert get_perfect_squares(5, 70) == [9, 16, 25, 36, 49, 64]
 def main():
-    #start = int(input("Prima valoare este: "))
-    #end = int(input("Ultima valoare este: "))
-    #  l=get_leap_years(start,end)
-    #  print("Anii bisecti sunt: ",l)
-    # test_get_leap_years()
-    #l= get_perfect_squares(start, end)
-    #print("Patratele perfecte sunt: ",l)
-    #test_get_perfect_squares()
-    n = int(input("Numarul este: "))
-    print(is_palindrome(n))
+    print("1.Numarul este palindrom")
+    print("2.Anii bisecti dintre doua numere")
+    print("3.Toate numerele patrate perfecte dintr-un interval inchis")
+    print("4.Exit")
+    x = int(input("Alegeti exercitiul"))
+    while x!=0:
+        if x == 1:
+            n = int(input("Numarul este: "))
+            print(is_palindrome(n))
+        elif x == 2:
+            start = int(input("Prima valoare este: "))
+            end = int(input("Ultima valoare este: "))
+            l=get_leap_years(start,end)
+            print("Anii bisecti sunt: ",l)
+        elif x == 3:
+            start = int(input("Prima valoare este: "))
+            end = int(input("Ultima valoare este: "))
+            l = get_perfect_squares(start, end)
+            print("Patratele perfecte sunt: ",l)
+        elif x == 4:
+            x = 0
+        elif x>4 :
+            print("Acest exercitiu nu exista")
+        print("1.Numarul este palindrom")
+        print("2.Anii bisecti dintre doua numere")
+        print("3.Toate numerele patrate perfecte dintr-un interval inchis")
+        print("4.Exit")
+        x = int(input("Alegeti exercitiul"))
+    test_get_leap_years()
+    test_get_perfect_squares()
     test_is_palindrome()
 
 main()
