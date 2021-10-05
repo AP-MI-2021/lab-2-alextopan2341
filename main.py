@@ -33,6 +33,28 @@ def get_perfect_squares(start: int, end: int):
         if math.sqrt(i) == int(math.sqrt(i)):
             li.append(i)
     return li
+
+def is_palindrome(n: int):
+    '''
+    Returneaza 1 daca numarul este palindrom, 0 in caz contrar
+    :param n:parametru de verificare
+    :return: true sau false
+    '''
+    ogl = 0
+    x = n
+    while x > 0:
+        ogl = ogl*10 + x % 10
+        x = x // 10
+    if n == ogl:
+        return True
+    else:
+        return False
+
+def test_is_palindrome():
+    assert is_palindrome(151) is True
+    assert is_palindrome(12) is False
+    assert is_palindrome(913) is False
+    assert is_palindrome(1331) is True
 def test_get_leap_years():
     assert get_leap_years(2013, 2014) == []
     assert get_leap_years(2013, 2016) == [2016]
@@ -46,12 +68,16 @@ def test_get_perfect_squares():
     assert get_perfect_squares(1, 100) == [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     assert get_perfect_squares(5, 70) == [9, 16, 25, 36, 49, 64]
 def main():
-    start = int(input("Prima valoare este: "))
-    end = int(input("Ultima valoare este: "))
+    #start = int(input("Prima valoare este: "))
+    #end = int(input("Ultima valoare este: "))
     #  l=get_leap_years(start,end)
     #  print("Anii bisecti sunt: ",l)
     # test_get_leap_years()
-    l= get_perfect_squares(start, end)
-    print("Patratele perfecte sunt: ",l)
-    test_get_perfect_squares()
+    #l= get_perfect_squares(start, end)
+    #print("Patratele perfecte sunt: ",l)
+    #test_get_perfect_squares()
+    n = int(input("Numarul este: "))
+    print(is_palindrome(n))
+    test_is_palindrome()
+
 main()
